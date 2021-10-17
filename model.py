@@ -52,7 +52,7 @@ def sentiment(recom_prod):
 
 
 def recommendation(user_input):
-    recom = model_rec.loc[user_input].sort_values(ascending=False)[0:20].index
+    recom = model_rec.loc[user_input.lower()].sort_values(ascending=False)[0:20].index
     return recom
 
 
