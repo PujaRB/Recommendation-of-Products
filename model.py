@@ -39,7 +39,7 @@ model_rec  = pkl.load(open('models/user_recommendation_sys.pkl','rb'))
 
 def sentiment(recom_prod):
     df = transform[transform.name.isin(recom_prod)]
-    features = tfidf.transform(df['text'])
+    tfidf_vectorizer_vectors = tfidf.transform(df['text'])
     pred_data = xgb3.predict(features)
     predictions = [round(value) for value in pred_data]
     df['predicted'] = predictions
